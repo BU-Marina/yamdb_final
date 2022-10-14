@@ -7,7 +7,6 @@ from rest_framework.mixins import CreateModelMixin
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenViewBase
-
 from reviews.models import Category, Genre, Review, Title, User
 
 from .filters import TitleFilter
@@ -182,6 +181,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
         if request.method == 'DELETE':
             raise MethodNotAllowed(method='DELETE')
+        return None
 
     def get_permissions(self):
         if self.action == 'me':
