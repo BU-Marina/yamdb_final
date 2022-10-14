@@ -1,15 +1,15 @@
 from django_filters.rest_framework import DjangoFilterBackend
-
 from rest_framework import filters, status, viewsets
+from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.generics import get_object_or_404
-from rest_framework.decorators import action
 from rest_framework.mixins import CreateModelMixin
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenViewBase
 
 from reviews.models import Category, Genre, Review, Title, User
+
 from .filters import TitleFilter
 from .permissions import AdminOnly, AdminOrReadOnly, AuthorOrHasRoleOrReadOnly
 from .serializers import (CategorySerializer, CommentSerializer,
@@ -30,6 +30,7 @@ class GenreViewSet(viewsets.ModelViewSet):
         if not self.kwargs.get('pk').isnumeric():
             return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
         super().retrieve(request, *args, **kwargs)
+        return None
 
     def destroy(self, request, *args, **kwargs):
         instance = get_object_or_404(Genre, slug=self.kwargs.get('pk'))
@@ -40,6 +41,7 @@ class GenreViewSet(viewsets.ModelViewSet):
         if not self.kwargs.get('pk').isnumeric():
             return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
         super().update(request, *args, **kwargs)
+        return None
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -54,6 +56,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         if not self.kwargs.get('pk').isnumeric():
             return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
         super().retrieve(request, *args, **kwargs)
+        return None
 
     def destroy(self, request, *args, **kwargs):
         instance = get_object_or_404(Category, slug=self.kwargs.get('pk'))
@@ -64,6 +67,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         if not self.kwargs.get('pk').isnumeric():
             return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
         super().update(request, *args, **kwargs)
+        return None
 
 
 class TitleViewSet(viewsets.ModelViewSet):
@@ -149,8 +153,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         user_username = self.kwargs['pk']
-        user = get_object_or_404(User, username=user_username)
-        return user
+        return get_object_or_404(User, username=user_username)
 
     @action(methods=['get', 'patch', 'put', 'delete'], detail=False)
     def me(self, request):
