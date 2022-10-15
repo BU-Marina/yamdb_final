@@ -1,4 +1,4 @@
-name: yamdb workflow
+name: Test, Build and Deploy
 
 on: [push]
 
