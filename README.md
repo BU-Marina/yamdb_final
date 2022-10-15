@@ -1,6 +1,6 @@
 # Проект YaMDb
 
-![CI](https://github.com/BU-Marina/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)
+[![CI](https://github.com/BU-Marina/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)](https://github.com/BU-Marina/yamdb_final/actions/workflows/yamdb_workflow.yml)
 
 Собираются пользовательские отзывы на произведения по категориям (книги, фильмы и музыка).
 
