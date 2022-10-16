@@ -53,8 +53,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          context: yamdb_final/infra/
           script: |
+            cd yamdb_final/infra/
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
