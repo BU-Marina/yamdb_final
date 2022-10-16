@@ -55,6 +55,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             cd infra/
+            ls
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
