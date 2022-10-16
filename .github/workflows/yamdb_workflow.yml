@@ -53,8 +53,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
+          context: ./infra/
           script: |
-            cd ./infra/
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
