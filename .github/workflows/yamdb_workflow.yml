@@ -48,6 +48,7 @@ jobs:
       - name: CHECK SECRETS
         run: |
           echo ${{ secrets.SSH_KEY }}
+          echo ${{ secrets.DOCKER_USERNAME }}
   deploy:
     runs-on: ubuntu-latest
     needs: build
