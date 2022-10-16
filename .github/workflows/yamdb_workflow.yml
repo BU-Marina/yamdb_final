@@ -43,7 +43,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
   test_secrets:
-    runs-ont: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: CHECK SECRETS
         run: |
