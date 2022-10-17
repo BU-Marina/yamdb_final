@@ -21,7 +21,7 @@
 Выполнить из директории с файлом docker-compose.yaml
 
 ```
-docker-compose up -d --build
+docker-compose up -d
 ```
 
 ## Заполнение БД начальными данными
