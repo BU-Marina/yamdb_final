@@ -9,7 +9,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: marinabu/api_yamdb:v1.0.1
+    image: marinabu/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
